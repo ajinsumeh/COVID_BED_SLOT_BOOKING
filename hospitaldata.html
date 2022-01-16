@@ -1,0 +1,79 @@
+{%extends "navbar.html" %}
+{% block title %}
+Add Hospital information
+{% endblock title %}
+{% block body %}
+<br>
+<br>
+<br>
+<br>
+<br>
+<div class="container mt-4">
+  <div class="display-4 text-center">Add Hospital Data</div>
+  <br>
+  <div class="row">
+    <div class="col-md-6">
+        <div class="card">
+          {% include "message.html" %}
+          <h4 class="text-center">Covicare Bed Availablity</h4>
+          <div class="card-body bg-danger">
+
+            <form action="/addhospitalinfo" method="post">
+              <div class="form-group">
+                <input type="text" class="form-control mt-2" name="h_code" value="{{current_user.h_code}}" required>
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control mt-2" name="h_name" placeholder="Enter the Hospital Name" required>
+              </div>
+              <div class="form-group">
+                <input type="number" class="form-control mt-2" name="normal_beds" placeholder="Enter the normal beds available" required>
+              </div>
+              <div class="form-group">
+                <input type="number" class="form-control mt-2" name="h_icu" placeholder="Enter the HICU beds available" required>
+              </div>
+              <div class="form-group">
+                <input type="number" class="form-control mt-2" name="icu_beds" placeholder="Enter the ICU beds available" required>
+              </div>
+              <div class="form-group">
+                <input type="number" class="form-control mt-2" name="vent_beds" placeholder="Enter the ventilator beds available" required>
+              </div>
+              <br>
+              <button class="btn btn-info" type"submit">Add Data</button>
+            </form>
+          </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+      <div class="card mb-3">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img src="https://source.unsplash.com/600x1500/?medical,hospital" class="img-fluid rounded-start" alt="...">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body bg-info">
+              <h5 class="card-title">Your Hospital Data</h5>
+                  <div class="card" style="width: 28rem;">
+                    <u1 class="list-group list-group-flush">
+                    
+                      <li class="list-group-item">Hospital Code : <b>{{postsdata.h_code}}</b></li>
+                        <li class="list-group-item">Hospital Name: <b>{{postsdata.h_name}}</b></li>
+                          <li class="list-group-item">Normal Beds Available: <b>{{postsdata.normal_beds}}</b></li>
+                          <li class="list-group-item">HICU Beds Available: <b>{{postsdata.hicu_beds}}</b></li>
+                          <li class="list-group-item">ICU Beds Available: <b>{{postsdata.icu_beds}}</b></li>
+                          
+                          <li class="list-group-item">Ventilator Beds Available: <b>{{postsdata.vent_beds}}</b></li>
+                          <li class="list-group-item">Edit Data: <a href="/edit/{{postsdata.id}}"><i class="fas fa-user-edit"></i></li>
+                            <li class="list-group-item">Delete Data: <a confirm('Are you sure you want to delete the data'); href="/delete/{{postsdata.id}}"><i class="fas fa-trash"></i></li>
+                    </u1>
+                  </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+</div>
+{% endblock body %}
