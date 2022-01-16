@@ -1,0 +1,52 @@
+{% extends 'baselogin.html' %}
+{% block title %}
+Patient Details
+{% endblock title %}
+
+    
+
+{% block form %}
+<h2><center><b>COVICARE PATIENT DETAILS</b></center></h2>
+<div class="row">
+    <div class="col-md-4">
+        <h1><b></b><center>Patient Details</center></b></h1>
+    </div>
+   
+    <div class="col-md-4"></div>
+    <table class="table">
+        <thead>
+            
+          <tr>
+            <th scope="col">Patient Name</th>
+            <th scope="col">SRF ID</th>
+            <th scope="col">Hospital Code</th>
+            <th scope="col">Bed Type</th>
+            <th scope="col">spO2</th>
+            <th scope="col">Patient Phone Number</th>
+            <th scope="col">Patient Address </th>
+          </tr>
+        </thead>
+    <tbody>
+        {% for p in data %}
+          <tr>
+            <th scope="row">1</th>
+            <td>{{p.p_name}}</td>
+            <td>{{p.srfid}}</td>
+            <td>{{p.h_code}}</td>
+            <td>{{p.bed_type}}</td>
+            <td>{{p.spo2}}</td>
+            <td>{{p.p_phno}}</td>
+            <td>{{p.p_address}}</td>
+            
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+</div>
+
+
+
+
+</form>
+{% endblock form %}
+
