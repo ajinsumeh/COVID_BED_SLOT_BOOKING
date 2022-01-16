@@ -1,0 +1,76 @@
+{% extends 'baselogin.html' %}
+{% block title %}
+Add Hospital User
+{% endblock title %}
+{% include "message.html" %}
+
+
+{% block form %}
+<h2><center><b>Hospital User Details</b></center></h2>
+<div class="row">
+    <div class="col-md-4">
+        <a href="/logoutadmin" class="btn btn-danger">Logout</a></div>
+    </div>
+    <div class="col-md-4">
+        <form action="/addhospitaluser" method="post">
+            {% include "message.html" %}
+            <div class="form-group">
+                <input type="email" class="form-control mt-2" placeholder="Enter the email" name="email" required>
+            </div>
+            <form action="" method="post">
+                <div class="form-group">
+                    <input type="text" class="form-control mt-2" placeholder="Enter the hospital code" name="h_code" required>
+                </div>
+            <form action="" method="post">
+                <div class="form-group">
+                    <input type="password" class="form-control mt-2" placeholder="Enter your password" name="password" required>
+                    <br>
+                <br>
+                <button type="submit" class="btn btn-danger" name="button">Add Data</button>
+                </div>
+        </form>            
+    </div>
+           
+                
+               
+    <div class="col-md-4"></div>
+
+</div>
+<div class="container mt-2">
+    <table class="table">
+        <h4>Triggered Data</h4>
+        <thead>
+            
+          <tr>
+            <th scope="col">Hospital Code</th>
+            <th scope="col">Normal Beds</th>
+            <th scope="col">HICU Beds</th>
+            <th scope="col">ICU Beds</th>
+            <th scope="col">Ventilator Beds</th>
+            <th scope="col">Cred Operation</th>
+            <th scope="col">Date</th>
+          </tr>
+        </thead>
+    <tbody>
+        {% for p in data %}
+          <tr>
+            <th scope="row">1</th>
+            <td>{{p.h_code}}</td>
+            <td>{{p.normal_beds}}</td>
+            <td>{{p.hicu_beds}}</td>
+            <td>{{p.icu_beds}}</td>
+            <td>{{p.vent_beds}}</td>
+            <td>{{p.Cred_opn}}</td>
+            <td>{{p.Date}}</td>
+            
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+</div>
+
+
+
+
+{% endblock form %}
+
