@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>{% block blockname %}
+    COVID BED SLOT BOOKING
+  {% endblock blockname %}</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="static/assets/img/1.png" rel="icon">
+  <link href="static/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  
+  <!-- Vendor CSS Files -->
+  <link href="static/assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
+  <link href="static/assets/vendor/animate.css/animate.min.css" rel="stylesheet">
+  <link href="static/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="static/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="static/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="static/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="static/assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="static/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="static/assets/css/style.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <!-- ======= Top Bar ======= -->
+  <div id="topbar" class="d-flex align-items-center fixed-top">
+    <div class="container d-flex justify-content-between">
+      <div class="contact-info d-flex align-items-center">
+        <i class="bi bi-envelope"></i> <a href="mailto:contact@example.com">lohithnaj1@gmail.com</a>
+        <i class="bi bi-envelope"></i> <a href="mailto:contact@example.com">ajinms2001@gmail.com</a>
+        <i class="bi bi-phone"></i> +919353754488
+        <i class="bi bi-phone"></i> +919886468015
+      </div>
+    </div>
+  </div>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top">
+    <div class="container d-flex align-items-center">
+
+      <h1 class="logo me-auto"><a href="">COVICARE</a></h1>
+      <a href="index.html" class="logo me-auto"><img src="static/assets/img/logo.jpg" alt="" class="img-fluid"></a>
+
+      <nav id="navbar" class="navbar order-last order-lg-0">
+        <ul>
+          <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
+          <li><a class="nav-link scrollto" href="/patientdetails">Patient Details</a></li>
+          <li><a class="nav-link scrollto" href="/slotbooking">Availability</a></li>
+          <li><a class="nav-link scrollto" href="/triggers">History</a></li>
+         
+{% if current_user.is_authenticated  and current_user.h_code %}
+
+<li class="dropdown"><a href="/login"><span>Welcome {{current_user.email}}</span> <i class="bi bi-chevron-down"></i></a>
+  <ul>
+
+    <li><a href="/addhospitalinfo">Add Hospital Data</a></li>
+    <li><a href="/logout">Logout</a></li>
+
+ 
+  </ul>
+</li>
+{% elif current_user.is_authenticated and current_user.srfid %}
+ <li class="dropdown"><a href="/login"><span>Welcome {{current_user.email}}</span> <i class="bi bi-chevron-down"></i></a>
+  <ul>
+
+    <li><a href="/slotbooking">Book Slot</a></li>
+    <li><a href="/logout">Logout</a></li>
+
+ 
+  </ul>
+</li>
+{% else %}
+<li class="dropdown"><a href="/login"><span>Sign In</span> <i class="bi bi-chevron-down"></i></a>
+  <ul>
+    <li><a href="/login">User Login</a></li>
+    <li><a href="/hospitallogin">Hospital Login</a></li>
+    <li><a href="/admin">Admin Login</a></li>
+ 
+  </ul>
+</li>
+
+{% endif %}
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+      <a href="/slotbooking" class="appointment-btn scrollto"><span class="d-none d-md-inline">Book a Bed Now</span></a>
+
+    </div>
+  </header><!-- End Header -->
+
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" class="d-flex align-items-center">
+    <div class="container">
+      <h1>Welcome to COVICARE</h1>
+      <h2>For a better India....</h2>
+      <a href="#about" class="btn-get-started scrollto">Get Started</a>
+    </div>
+  </section><!-- End Hero -->
+
+  <main id="main">
+
+    <!-- ======= Why Us Section ======= -->
+    <section id="why-us" class="why-us">
+      <div class="container">
+
+        <div class="row">
+          <div class="col-lg-4 d-flex align-items-stretch">
+            <div class="content">
+              <h3>Why Choose Care COVICARE?</h3>
+              <p>
+               We are a group of individuals working for the betterment of the society. We focus on establishing a comfortable health infrastructure for people in need.
+              </p>
+              <div class="text-center">
+                <a href="#" class="more-btn">Learn More <i class="bx bx-chevron-right"></i></a>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-8 d-flex align-items-stretch">
+            <div class="icon-boxes d-flex flex-column justify-content-center">
+              <div class="row">
+                <div class="col-xl-4 d-flex align-items-stretch">
+                  <div class="icon-box mt-4 mt-xl-0">
+                    <i class="bx bx-receipt"></i>
+                    <h4>Enquiry</h4>
+                    <p>We keep realtime data of the number of beds in each hospital</p>
+                  </div>
+                </div>
+                <div class="col-xl-4 d-flex align-items-stretch">
+                  <div class="icon-box mt-4 mt-xl-0">
+                    <i class="bx bx-cube-alt"></i>
+                    <h4>Booking</h4>
+                    <p>We give realtime data and you can book the beds</p>
+                  </div>
+                </div>
+                <div class="col-xl-4 d-flex align-items-stretch">
+                  <div class="icon-box mt-4 mt-xl-0">
+                    <i class="bx bx-images"></i>
+                    <h4>Care</h4>
+                    <p>We take care of alloting beds and keep things ready for you</p>
+                  </div>
+                </div>
+              </div>
+            </div><!-- End .content-->
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End Why Us Section -->
+
+    <!-- ======= About Section ======= -->
+    <section id="about" class="about">
+      <div class="container-fluid">
+
+        <div class="row">
+          <div class="col-xl-5 col-lg-6 video-box d-flex justify-content-center align-items-stretch position-relative">
+            <a href="https://www.youtube.com/watch?v=ZqaPZ3ST1AY" class="glightbox play-btn mb-4"></a>
+          </div>
+
+          <div class="col-xl-7 col-lg-6 icon-boxes d-flex flex-column align-items-stretch justify-content-center py-5 px-lg-5">
+            <h3>Symptoms of COVID-19</h3>
+            <p>To learn more click below</p>
+
+            <div class="icon-box">
+              <div class="icon"><i class="bx bx-fingerprint"></i></div>
+              <h4 class="title"><a href="">Fever</a></h4>
+              <p class="description">Do you have fever?</p>
+            </div>
+
+            <div class="icon-box">
+              <div class="icon"><i class="bx bx-gift"></i></div>
+              <h4 class="title"><a href="">Do you have breathing difficulty?</a></h4>
+              <p class="description">Get consulted now</p>
+            </div>
+
+            <div class="icon-box">
+              <div class="icon"><i class="bx bx-atom"></i></div>
+              <h4 class="title"><a href="">Do you need help?</a></h4>
+              <p class="description">Take guidance here</p>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End About Section -->
+
+    
+    <!-- ======= Gallery Section ======= -->
+    <section id="gallery" class="gallery">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Gallery</h2>
+          <p><center>We care for you</center></p>
+        </div>
+      </div>
+
+      <div class="container-fluid">
+        <div class="row no-gutters">
+
+          <div class="col-lg-3 col-md-4">
+            <div class="gallery-item">
+              <a href="https://source.unsplash.com/600x500/?medicine,hospital" class="galelry-lightbox">
+                <img src="https://source.unsplash.com/600x500/?tablets,hospital" alt="" class="img-fluid">
+              </a>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4">
+            <div class="gallery-item">
+              <a href="https://source.unsplash.com/600x500/?treatment,hospital" class="galelry-lightbox">
+                <img src="https://source.unsplash.com/600x500/?doctors,hospital" alt="" class="img-fluid">
+              </a>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4">
+            <div class="gallery-item">
+              <a href="https://source.unsplash.com/600x500/?patients,hospital" class="galelry-lightbox">
+                <img src="https://source.unsplash.com/600x500/?scanning,hospital" alt="" class="img-fluid">
+              </a>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4">
+            <div class="gallery-item">
+              <a href="https://source.unsplash.com/600x500/?medical,hospital" class="galelry-lightbox">
+                <img src="https://source.unsplash.com/600x500/?medical,hospital" alt="" class="img-fluid">
+              </a>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4">
+            <div class="gallery-item">
+              <a href="https://source.unsplash.com/600x500/?lungs,hospital" class="galelry-lightbox">
+                <img src="https://source.unsplash.com/600x500/?breathing,hospital" alt="" class="img-fluid">
+              </a>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4">
+            <div class="gallery-item">
+              <a href="https://source.unsplash.com/600x500/?pulmanology,hospital" class="galelry-lightbox">
+                <img src="https://source.unsplash.com/600x500/?oxygen,hospital" alt="" class="img-fluid">
+              </a>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4">
+            <div class="gallery-item">
+              <a href="https://source.unsplash.com/600x500/?surgery,hospital" class="galelry-lightbox">
+                <img src="https://source.unsplash.com/600x500/?cancer,hospital" alt="" class="img-fluid">
+              </a>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4">
+            <div class="gallery-item">
+              <a href="https://source.unsplash.com/600x500/?medical,hospital" class="galelry-lightbox">
+                <img src="https://source.unsplash.com/600x500/?covid,hospital" alt="" class="img-fluid">
+              </a>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Gallery Section -->
+
+    <!-- ======= Contact Section ======= -->
+    <section id="contact" class="contact">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Contact</h2>
+          <p>You can find us here at:</p>
+        </div>
+      </div>
+
+      <div>
+        <iframe style="border:0; width: 100%; height: 350px;"" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3890.0373455800163!2d77.50952201470787!3d12.840863290941785!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae155daf255555%3A0xb0d9badee8173f84!2sJyothy%20Institute%20of%20Technology!5e0!3m2!1sen!2sin!4v1641621139551!5m2!1sen!2sin" frameborder="0" allowfullscreen></iframe>
+      </div>
+
+      
+              <div class="email">
+                <i class="bi bi-envelope"></i>
+                <h4><center>Email:</center</h4>
+                <p><center>lohithnaj1@gmail.com , ajinms2001@gmail.com</center></p>
+              </div>
+
+              <div class="phone">
+                <i class="bi bi-phone"></i>
+                <h4><center>Call:</center></h4>
+                <p><center>+919353754488, +919886468015</center></p>
+              </div>
+
+            </div>
+
+          </div>
+
+
+      </div>
+    </section><!-- End Contact Section -->
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+
+    <div class="footer-top">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-lg-3 col-md-6 footer-contact">
+            <h3>COVICARE</h3>
+            <p>
+              Jyothy Institute of Technology<br>
+              Pipeline Rd, Near Ravi Shankar Guruji Ashram <br>
+              Thathaguni, Karnataka 560082<br><br>
+              <strong>Phone:</strong> +919353754488, +919886468015<br>
+              <strong>Email:</strong> lohithnaj1@gmail.com , ajinms2001@gmail.com<br>
+            </p>
+          </div>
+
+          <div class="col-lg-2 col-md-6 footer-links">
+            <h4>Useful Links</h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">About us</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Services</a></li>
+            </ul>
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+
+    <div class="container d-md-flex py-4">
+
+      <div class="me-md-auto text-center text-md-start">
+        <div class="copyright">
+          &copy; Copyright <strong><span>COVICARE</span></strong>. All Rights Reserved
+        </div>
+        <div class="credits">
+          Designed by <a href="https://bootstrapmade.com/">Ajin and Lohith</a>
+        </div>
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+
+  <div id="preloader"></div>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="static/assets/vendor/purecounter/purecounter.js"></script>
+  <script src="static/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="static/assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="static/assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="static/assets/vendor/php-email-form/validate.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="static/assets/js/main.js"></script>
+
+</body>
+
+</html>
